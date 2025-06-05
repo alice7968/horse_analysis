@@ -1,0 +1,89 @@
+## merged_dataのカラムの説明
+- race_id:レースを識別するID
+- rank:ゴールした時の順位
+- frame_number:枠番
+- horse_number:馬番
+- horse_id:馬を識別するID
+- burden_weight:馬に乗っているジョッキーの重量
+- rider_id:ジョッキーを識別するID
+- goal_time:ゴールした時の時間
+- last_time:ゴールまで残り600mの地点からゴールするまでにかかった時間
+- odds:馬のオッズ
+- popular:馬の人気
+- horse_weight:馬の体重
+- tamer_id:馬の調教師を識別するためのID
+- date:レースが行われた日付
+- is_senba:去勢されている馬、「せん馬」という。trueなら1,falseなら0
+- is_mesu:メスの馬、「牝馬」という。trueなら1,falseなら0
+- is_osu:オスの馬、「牡馬」という。trueなら1,falseなら0
+- age:馬の年齢
+- half_way_dif:スタートした後最初のコーナーの時の順位 - ゴールした時の順位
+- distance:レースの距離（単位はm）。レースの種類は"is_obstacle","ground_type","distance","is_left_right_straight"の要素で構成されている。
+- direction: コースの周回方向（左:2, 右:1, 直線:0, 障害競走:-1）
+- avg_velocity:馬の平均速度、単位はm/s
+- horse_weight_dif:馬の前のレースとの体重の増減（前レースと該当レースでの"horse_weight"を参照）
+
+- race_number:レースのラウンド数
+- weather:レースの天気
+- surface:レース場の地面の種類で、"0"は「ダート（砂で作成されたレース場）」、"1"は「芝（芝で作成されたレース場）」
+- ground_status:馬場（馬が競争を行う場所）の状況で、"0"は踏みしめた際、馬場の表面はほとんど変化しない状態で「良」という。"1"は踏みしめた際に水は染み出ないが、馬場の表面がやや凹む状態で「稍重」という。"2"は表面に水は浮いていないが、踏みしめると水が染み出る状態で「重」という。"3"は表面や足跡に水が浮いている状態で「不良」という。
+- headcount:出走頭数
+- frame_number_first:1位の馬の枠番（"frame_number"）
+- horse_number_first:1位の馬の馬番（"horse_number"）
+- frame_number_second:2位の馬の枠番
+- horse_number_second:2位の馬の馬番
+- frame_number_third:3位の馬の枠番
+- horse_number_third:3位の馬の馬番
+- tansyo:単勝（1位になる馬を当てる馬券）を100円買った時に得られる金額（円）
+- hukusyo_first:1位の馬の複勝（3位までに入る馬を当てる馬券）を100円買った時に得られる金額（円）
+- hukusyo_second:2位の馬の複勝を100円買った時に得られる金額（円）
+- hukusyo_third:3位の馬の複勝を100円買った時に得られる金額（円）
+- wakuren:枠連（1位と2位になる馬の"frame_number"の組合せを当てる馬券）を100円買った時に得られる金額（円）
+- umaren:馬連（1位と2位になる馬の"horse_number"の組合せを当てる馬券）を100円買った時に得られる金額（円）
+- wide_1_2:ワイド（3着までに入る2頭の"horse_number"の組合せを当てる馬券）を1位と2位の馬で100円買った時に得られる金額（円）
+- wide_1_3:ワイドを1位と3位の馬で100円買った時に得られる金額（円）
+- wide_2_3:ワイドを2位と3位の馬で100円買った時に得られる金額（円）
+- umatan:馬単（1位と2位になる馬の"horse_number"を順位通りに当てる馬券）を100円買った時に得られる金額（円）
+- renhuku3:（1位、2位、3位となる馬の"horse_number"の組合せを当てる馬券）
+- rentan3:（1位、2位、3位となる馬の"horse_number"を順位通りに当てる馬券）
+- is_obstacle:レース場の形態の種類で、"1"は「障害競走（コースに設置された障害物を飛越しながらゴールに到達する早さを競うもの）」、"0"は「一般競争」
+- race_course_id:レースの開催場所の識別番号（"01": "札幌", "02": "函館", "03": "福島", "04": "新潟", "05": "東京","06": "中山", "07": "中京", "08": "京都", "09": "阪神", "10": "小倉"）
+- parent_ml_id: 馬の父の識別番号
+- parent_ml_ml_id: 馬の父の父の識別番号
+- parent_ml_fml_id: 馬の父の母の識別番号
+- parent_fml_id: 馬の母の識別番号
+- parent_fml_ml_id: 馬の母の父の識別番号
+- parent_fml_fml_id: 馬の母の母の識別番号
+
+
+# train_dataで取得準備が整っている項目(2025.5.23)
+- race_id
+- date
+- start_time
+- race_course
+- race_number
+- race_name
+- surface
+- distance
+- direction
+- headcount
+- frame_number
+- horse_number
+- 馬名 -> horse_nameに名称変更推奨
+- 斤量 -> burden_weightに名称変更推奨
+- 騎手 -> jockey_nameに名称変更推奨
+- 厩舎 -> namer_nameに名称変更推奨
+- horse_weight
+- odds
+- popular
+- age
+- is_senba
+- is_mesu
+- is_osu
+- horse_id
+- rider_id
+- tamer_id
+- race_course_id
+- weather
+- ground_status
+- is_obstacle
